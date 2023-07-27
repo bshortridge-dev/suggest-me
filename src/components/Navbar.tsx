@@ -41,22 +41,34 @@ export const Navbar = () => {
             <img src="src/assets/logo.png" alt="logo" />
           </Link>
           <Link to="/">
-            <span className="hidden md:block rounded-lg normal-case text-xl ml-2 h-5 pl-2 items-center">
+            <span className="hidden md:block rounded-lg normal-case text-xl ml-2 h-5 pl-2 items-center hover:text-accent">
               SuggestMe.io
             </span>
           </Link>
         </div>
         <div className="flex-none gap-2">
-          <Link to="/Home">
-            <span className="btn btn-outline btn-secondary btn-sm rounded-md normal-case text-l">
+          <Link to="/">
+            <span className="normal-case text-l hover:underline hover:text-accent pl-2 pr-2">
               Home
             </span>
           </Link>
-          <Link to="/About">
-            <a className="btn btn-outline btn-secondary btn-sm rounded-md normal-case text-l">
-              About
-            </a>
+          <Link to="/Latest">
+            <span className="normal-case text-l hover:underline hover:text-accent pl-2 pr-2">
+              Latest
+            </span>
           </Link>
+          <Link to="/AISuggestion">
+            <span className="normal-case text-l hover:underline hover:text-accent pl-2 pr-2">
+              AI Suggestion
+            </span>
+          </Link>
+          {user ? (
+            ""
+          ) : (
+            <Link to="/login">
+              <span className="hover:underline hover:text-accent">Login</span>
+            </Link>
+          )}
           {/* Dark mode toggle */}
           <label
             htmlFor="darkModeToggle"
@@ -106,7 +118,10 @@ export const Navbar = () => {
             </div>
           </label>
           <div className="dropdown dropdown-end pl-3 mr-5">
-            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+            <label
+              tabIndex={0}
+              className="btn btn-ghost btn-circle hover:btn-accent avatar "
+            >
               <div className="w-10 rounded-full">
                 <img
                   className="avatar"
@@ -123,13 +138,25 @@ export const Navbar = () => {
               className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
             >
               <li>
-                <Link to="/dashboard">Dashboard</Link>
+                <Link to="/dashboard">
+                  <span className="hover:underline hover:text-accent">
+                    Dashboard
+                  </span>
+                </Link>
               </li>
               <li>
                 {user ? (
-                  <button onClick={() => auth.signOut()}>Sign Out</button>
+                  <button onClick={() => auth.signOut()}>
+                    <span className="hover:underline hover:text-accent">
+                      Sign Out
+                    </span>
+                  </button>
                 ) : (
-                  <Link to="/login">Login</Link>
+                  <Link to="/login">
+                    <span className="hover:underline hover:text-accent">
+                      Login
+                    </span>
+                  </Link>
                 )}
               </li>
             </ul>

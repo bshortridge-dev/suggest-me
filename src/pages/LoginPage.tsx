@@ -10,9 +10,9 @@ export const LoginPage = () => {
     navigate("/");
   };
   return (
-    <div>
+    <main>
       <p>Sign in with Google to Continue</p>
       <button onClick={signIn}>Sign in with Google</button>
-    </div>
+    </main>
   );
 };
