@@ -1,26 +1,69 @@
 import { Link } from "react-router-dom";
 import { auth } from "../config/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { useEffect, useState } from "react";
 import "../index.css";
 
 export const Navbar = () => {
   const [user] = useAuthState(auth);
+  const [darkMode, setDarkMode] = useState(false);
+
+  useEffect(() => {
+    const html = document.documentElement;
+    if (darkMode) {
+      html.setAttribute("data-theme", "business");
+      // change html data-theme attribute
+    } else {
+      html.setAttribute("data-theme", "corporate");
+    }
+  }, [darkMode]);
+
+  const handleDarkModeToggle = () => {
+    setDarkMode(!darkMode);
+  };
+
   return (
     <nav>
-      <div className="navbar bg-neutral sticky">
-        <div className="flex-1">
+      <div className="navbar sticky drop-shadow-lg border border-t-0 border-r-0 border-l-0 border-b-slate-700">
+        <div className="flex-1 ml-5">
           <Link to="/">
-            <a className="btn btn-ghost normal-case text-xl">suggestme.io</a>
+            <img src="src/assets/logo.png" alt="logo" />
+          </Link>
+          <Link to="/">
+            <a className="hidden md:block rounded-lg normal-case text-xl ml-2 h-5 pl-2 items-center">
+              SuggestMe.io
+            </a>
           </Link>
         </div>
         <div className="flex-none gap-2">
           <Link to="/Home">
-            <a className="btn btn-sm normal-case text-l">Home</a>
+            <a className="btn btn-outline btn-secondary btn-sm rounded-md normal-case text-l">
+              Home
+            </a>
           </Link>
           <Link to="/About">
-            <a className="btn btn-outline btn-sm normal-case text-l">About</a>
+            <a className="btn btn-outline btn-secondary btn-sm rounded-md normal-case text-l">
+              About
+            </a>
           </Link>
-          <div className="dropdown dropdown-end">
+          {/* Dark mode toggle */}
+          <label
+            htmlFor="darkModeToggle"
+            className="flex items-center cursor-pointer"
+          >
+            <div className="relative">
+              <label className="cursor-pointer label">
+                <input
+                  type="checkbox"
+                  className="toggle toggle-secondary toggle-sm"
+                  id="darkModeToggle"
+                  checked={!darkMode} // Invert the value for the checked attribute
+                  onChange={handleDarkModeToggle}
+                />
+              </label>
+            </div>
+          </label>
+          <div className="dropdown dropdown-end pl-3 mr-5">
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
               <div className="w-10 rounded-full">
                 <img
@@ -32,6 +75,7 @@ export const Navbar = () => {
                 />
               </div>
             </label>
+
             <ul
               tabIndex={0}
               className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
