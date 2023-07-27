@@ -7,7 +7,18 @@ import "../index.css";
 export const Navbar = () => {
   const [user] = useAuthState(auth);
   const [darkMode, setDarkMode] = useState(false);
+  // get system preference for dark mode
+  useEffect(() => {
+    const prefersDark = window.matchMedia(
+      "(prefers-color-scheme: dark)"
+    ).matches;
 
+    if (prefersDark) {
+      setDarkMode(true);
+    }
+  }, []);
+
+  // set dark mode/light mode
   useEffect(() => {
     const html = document.documentElement;
     if (darkMode) {
@@ -30,16 +41,16 @@ export const Navbar = () => {
             <img src="src/assets/logo.png" alt="logo" />
           </Link>
           <Link to="/">
-            <a className="hidden md:block rounded-lg normal-case text-xl ml-2 h-5 pl-2 items-center">
+            <span className="hidden md:block rounded-lg normal-case text-xl ml-2 h-5 pl-2 items-center">
               SuggestMe.io
-            </a>
+            </span>
           </Link>
         </div>
         <div className="flex-none gap-2">
           <Link to="/Home">
-            <a className="btn btn-outline btn-secondary btn-sm rounded-md normal-case text-l">
+            <span className="btn btn-outline btn-secondary btn-sm rounded-md normal-case text-l">
               Home
-            </a>
+            </span>
           </Link>
           <Link to="/About">
             <a className="btn btn-outline btn-secondary btn-sm rounded-md normal-case text-l">
