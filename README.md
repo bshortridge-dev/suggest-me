@@ -1,7 +1,8 @@
 # Suggest Me
 
-First real React JS project not following a tutorial.
-Plans for prject:
+First real React JS project not following a tutorial. Decided to learn how to use github as well.
+
+## Plans for project:
 
 Community based system where users can post a movie or TV series and other users can comment suggestions of other 
 movies/shows they may like.
