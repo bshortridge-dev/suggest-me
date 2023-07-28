@@ -4,6 +4,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { useLottie } from "lottie-react";
 import signup from "../assets/signup.json";
 import { useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 
 export const Register = () => {
   const navigate = useNavigate();
@@ -49,6 +50,7 @@ export const Register = () => {
         navigate("/latest");
       } catch (error) {
         console.log(error);
+        alert("Please enter a valid email and password");
       }
     }
   };
@@ -71,17 +73,31 @@ export const Register = () => {
       <div className="hero min-h-screen bg-base">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="text-left lg:text-left ">
-            {View}
+            <motion.div
+              animate={{
+                opacity: [0, 1, 1],
+                y: [-300, 0, 0],
+              }}
+              transition={{ delay: 1 }}
+            >
+              {View}
+            </motion.div>
             <h1 className="text-4xl font-bold">Register Now</h1>
             <p className="py-6">
-              Join Suggest Me today and embark on an exciting cinematic journey
+              Join Suggested today and embark on an exciting cinematic journey
               like never before! Whether you're a film buff or a TV show
               aficionado, our platform is your gateway to endless entertainment
               possibilities. Share your favorite movies and series with us, and
               let our community guide you on your next binge-worthy adventure!
             </p>
           </div>
-          <div className="card flex-shrink-0 w-full max-w-sm shadow-md shadow-stone-800 bg-base-100">
+          <motion.div
+            animate={{
+              scale: [0, 1.1, 1],
+            }}
+            transition={{ delay: 0 }}
+            className="card flex-shrink-0 w-full max-w-sm shadow-md shadow-stone-800 bg-base-100"
+          >
             <div className="card-body">
               <div className="form-control">
                 <label className="label">
@@ -105,7 +121,7 @@ export const Register = () => {
                   className="input input-bordered"
                 />
                 <label className="label">
-                  <Link to="/Forgot">
+                  <Link to="/Login">
                     <span className="label-text-alt link link-hover hover:text-success pr-2">
                       Already a member? Return to Login
                     </span>
@@ -159,13 +175,13 @@ export const Register = () => {
               </div>
 
               <button
-                className="btn btn-ghost btn-sm rounded-md btn-block pt-3"
+                className="btn btn-ghost btn-sm rounded-md btn-block pt-3 pb-6"
                 onClick={handleGoogleSignIn}
               >
                 Sign up with Google
               </button>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </main>

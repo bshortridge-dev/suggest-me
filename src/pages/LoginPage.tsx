@@ -4,6 +4,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { useLottie } from "lottie-react";
 import eatingPopcorn from "../assets/popcorn.json";
 import { useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 
 export const LoginPage = () => {
   const navigate = useNavigate();
@@ -70,7 +71,15 @@ export const LoginPage = () => {
       <div className="hero min-h-screen bg-base">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="text-left lg:text-left ">
-            {View}
+            <motion.div
+              animate={{
+                opacity: [0, 1, 1],
+                y: [-300, 0, 0],
+              }}
+              transition={{ delay: 1 }}
+            >
+              {View}
+            </motion.div>
             <h1 className="text-4xl font-bold">Login</h1>
             <p className="py-6">
               Login to start getting suggestions. Make a post to get suggestions
@@ -78,7 +87,13 @@ export const LoginPage = () => {
               suggestions for you.
             </p>
           </div>
-          <div className="card flex-shrink-0 w-full max-w-sm shadow-md shadow-stone-800 bg-base-100">
+          <motion.div
+            animate={{
+              scale: [0, 1.1, 1],
+            }}
+            transition={{ delay: 0 }}
+            className="card flex-shrink-0 w-full max-w-sm shadow-md shadow-stone-800 bg-base-100"
+          >
             <div className="card-body">
               <div className="form-control">
                 <label className="label">
@@ -155,13 +170,13 @@ export const LoginPage = () => {
               </div>
 
               <button
-                className="btn btn-ghost btn-sm rounded-md btn-block pt-3"
+                className="btn btn-ghost btn-sm rounded-md btn-block pt-3 pb-6"
                 onClick={handleGoogleSignIn}
               >
                 Sign in with Google
               </button>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </main>

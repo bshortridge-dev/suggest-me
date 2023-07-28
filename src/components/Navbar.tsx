@@ -43,8 +43,8 @@ export const Navbar = () => {
             <img src="src/assets/logo.png" alt="logo" />
           </Link>
           <Link to="/">
-            <span className="rounded-lg normal-case text-xl ml-2 h-5 pl-2 items-center hover:text-accent">
-              SuggestMe.io
+            <span className="logo rounded-lg normal-case text-xl ml-2 h-5 pl-2 items-center hover:text-accent">
+              Suggested
             </span>
           </Link>
         </div>
