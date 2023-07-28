@@ -7,7 +7,8 @@ import { Dashboard } from "./pages/Dashboard";
 import Latest from "./pages/Latest";
 import AskAI from "./pages/AskAI";
 import Ask from "./pages/Ask";
-import Register from "./pages/Register";
+import { Register } from "./pages/Register";
+
 function App() {
   return (
     <div className="App">
@@ -21,6 +22,8 @@ function App() {
           <Route path="/AskAI" element={<AskAI />} />
           <Route path="/Login" element={<LoginPage />} />
           <Route path="/Register" element={<Register />} />
+          {/*<Route path="/Forgot" element={<Forgot />} />*/}
+          {/*      <Route path="/PasswordReset" element={<PasswordReset />} /> */}
         </Routes>
       </Router>
     </div>

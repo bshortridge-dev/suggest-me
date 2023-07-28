@@ -1,11 +1,15 @@
 import { auth, provider } from "../config/firebase";
-import { signInWithPopup } from "firebase/auth";
+import { signInWithPopup, signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate, Link } from "react-router-dom";
 import { useLottie } from "lottie-react";
 import eatingPopcorn from "../assets/popcorn.json";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 export const LoginPage = () => {
+  const navigate = useNavigate();
+  //
+  // Animation settings
+  //
   const lottieOptions = {
     animationData: eatingPopcorn,
     loop: true,
@@ -19,14 +23,38 @@ export const LoginPage = () => {
     },
   };
   const { View } = useLottie(lottieOptions);
-  const navigate = useNavigate();
-  const signIn = async () => {
+
+  const handleGoogleSignIn = async () => {
     const signInResult = await signInWithPopup(auth, provider);
     console.log(signInResult);
-    navigate("/");
+    navigate("/latest");
+  };
+  //
+  // Handle email and password sign in
+  //
+  const emailRef = useRef<HTMLInputElement>(null);
+  const passwordRef = useRef<HTMLInputElement>(null);
+  const handleEmailSignIn = async () => {
+    const email = emailRef.current?.value;
+    const password = passwordRef.current?.value;
+    if (email && password) {
+      try {
+        const signInResult = await signInWithEmailAndPassword(
+          auth,
+          email,
+          password
+        );
+        console.log(signInResult);
+        navigate("/latest");
+      } catch (error) {
+        console.log(error);
+      }
+    }
   };
 
-  // Check if user is logged in already
+  //
+  // Check if user is logged in already if they are redirect
+  //
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
       if (user) {
@@ -35,7 +63,7 @@ export const LoginPage = () => {
         return;
       }
     });
-  }, []);
+  }, [navigate]);
 
   return (
     <main>
@@ -58,6 +86,7 @@ export const LoginPage = () => {
                 </label>
                 <input
                   type="text"
+                  ref={emailRef}
                   placeholder="email"
                   className="input input-bordered"
                 />
@@ -67,7 +96,8 @@ export const LoginPage = () => {
                   <span className="label-text">Password</span>
                 </label>
                 <input
-                  type="text"
+                  type="password"
+                  ref={passwordRef}
                   placeholder="password"
                   className="input input-bordered"
                 />
@@ -101,7 +131,10 @@ export const LoginPage = () => {
                 </label>
               </div>
               <div className="form-control mt-6">
-                <button className="btn btn-accent rounded-md">
+                <button
+                  className="btn btn-accent rounded-md"
+                  onClick={handleEmailSignIn}
+                >
                   Login
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -123,7 +156,7 @@ export const LoginPage = () => {
 
               <button
                 className="btn btn-ghost btn-sm rounded-md btn-block pt-3"
-                onClick={signIn}
+                onClick={handleGoogleSignIn}
               >
                 Sign in with Google
               </button>
