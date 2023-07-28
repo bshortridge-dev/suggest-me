@@ -23,8 +23,10 @@ Possibly adding a feature to see where given suggestions are currently streamabl
 ## 7-26-2023: 
 - First commit to github, Worked on Navbar component and responsiveness.
 - Started adding firebase authentication.
+- Added light mode/dark mode funtionality
 ## 7-27-203: 
-- Finished? Navbar design and responsiveness, added hamburger menu for mobile.
+- Finished? Navbar design and responsiveness.
+- Added hamburger menu for mobile.
 - Added firebase email/password function to go alongside google authentication.
 - Added a register page, added content to login page and landing page.
 
