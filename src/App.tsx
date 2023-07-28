@@ -5,8 +5,9 @@ import { LoginPage } from "./pages/LoginPage";
 import { Navbar } from "./components/Navbar";
 import { Dashboard } from "./pages/Dashboard";
 import Latest from "./pages/Latest";
-import AISuggestion from "./pages/AISuggestion";
-
+import AskAI from "./pages/AskAI";
+import Ask from "./pages/Ask";
+import Register from "./pages/Register";
 function App() {
   return (
     <div className="App">
@@ -16,8 +17,10 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/Dashboard" element={<Dashboard />} />
           <Route path="/Latest" element={<Latest />} />
-          <Route path="/AISuggestion" element={<AISuggestion />} />
+          <Route path="/Ask" element={<Ask />} />
+          <Route path="/AskAI" element={<AskAI />} />
           <Route path="/Login" element={<LoginPage />} />
+          <Route path="/Register" element={<Register />} />
         </Routes>
       </Router>
     </div>
