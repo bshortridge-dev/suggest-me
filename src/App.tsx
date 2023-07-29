@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { HomePage } from "./pages/HomePage";
 import { LoginPage } from "./pages/LoginPage";
 import { Navbar } from "./components/Navbar";
+import { Footer } from "./components/Footer";
 import { Dashboard } from "./pages/Dashboard";
 import { Register } from "./pages/Register";
 import { Forgot } from "./pages/Forgot";
@@ -24,8 +25,8 @@ function App() {
           <Route path="/Login" element={<LoginPage />} />
           <Route path="/Register" element={<Register />} />
           <Route path="/Forgot" element={<Forgot />} />
-          {/*<Route path="/PasswordReset" element={<PasswordReset />} /> */}
         </Routes>
+        <Footer />
       </Router>
     </div>
   );

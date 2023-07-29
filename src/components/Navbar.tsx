@@ -35,8 +35,8 @@ export const Navbar = () => {
   };
 
   return (
-    <nav>
-      <div className="navbar sticky drop-shadow-lg border border-t-0 border-r-0 border-l-0 border-b-slate-700">
+    <nav className="z-10">
+      <div className="navbar drop-shadow-lg border border-t-0 border-r-0 border-l-0 border-b-slate-700">
         <div className="flex-1 ml-5">
           {/* Logo image and text */}
           <Link to="/">
@@ -86,9 +86,8 @@ export const Navbar = () => {
           <div className="md:hidden lg:hidden dropdown mr-5">
             <label
               tabIndex={0}
-              className="btn btn-sm btn-secondary hover:btn-accent rounded-2xl swap swap-rotate "
+              className="btn btn-sm btn-secondary hover:btn-accent rounded-2xl"
             >
-              <input type="checkbox" />
               {/* Hamburger menu icon */}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -96,7 +95,7 @@ export const Navbar = () => {
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
                 stroke="currentColor"
-                className="w-6 h-6 swap-off fill-current"
+                className="w-6 h-6 fill-current"
               >
                 <path
                   strokeLinecap="round"
@@ -104,25 +103,10 @@ export const Navbar = () => {
                   d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5"
                 />
               </svg>
-              {/* Closing hamburger menu icon */}
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="w-6 h-6 swap-on fill-current"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+              className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li>
                 <label
@@ -291,25 +275,36 @@ export const Navbar = () => {
               className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
             >
               <li>
-                <Link to="/dashboard">
-                  <span className="hover:underline hover:text-accent">
-                    Dashboard
-                  </span>
-                </Link>
-              </li>
-              <li>
                 {user ? (
-                  <button onClick={() => auth.signOut()}>
-                    <span className="hover:underline hover:text-accent">
-                      Sign Out
-                    </span>
-                  </button>
+                  <>
+                    <li>
+                      <Link to="/dashboard">
+                        <span className="hover:underline hover:text-accent">
+                          Dashboard
+                        </span>
+                      </Link>
+                    </li>
+                    <button onClick={() => auth.signOut()}>
+                      <span className="hover:underline hover:text-accent">
+                        Sign Out
+                      </span>
+                    </button>
+                  </>
                 ) : (
-                  <Link to="/login">
-                    <span className="hover:underline hover:text-accent">
-                      Login
-                    </span>
-                  </Link>
+                  <>
+                    <li>
+                      <Link to="/register">
+                        <span className="hover:underline hover:text-accent">
+                          Register
+                        </span>
+                      </Link>
+                    </li>
+                    <Link to="/login">
+                      <span className="hover:underline hover:text-accent">
+                        Login
+                      </span>
+                    </Link>
+                  </>
                 )}
               </li>
             </ul>
@@ -319,3 +314,25 @@ export const Navbar = () => {
     </nav>
   );
 };
+
+<div className="drawer drawer-end">
+  <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
+  <div className="drawer-content">
+    {/* Page content here */}
+    <label htmlFor="my-drawer-4" className="drawer-button btn btn-primary">
+      Open drawer
+    </label>
+  </div>
+  <div className="drawer-side">
+    <label htmlFor="my-drawer-4" className="drawer-overlay"></label>
+    <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
+      {/* Sidebar content here */}
+      <li>
+        <a>Sidebar Item 1</a>
+      </li>
+      <li>
+        <a>Sidebar Item 2</a>
+      </li>
+    </ul>
+  </div>
+</div>;

@@ -68,7 +68,7 @@ export const LoginPage = () => {
 
   return (
     <main>
-      <div className="hero min-h-screen bg-base">
+      <div className="hero bg-base">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="text-left lg:text-left ">
             <motion.div
