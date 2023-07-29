@@ -43,3 +43,7 @@ Possibly adding a feature to see where given suggestions are currently streamabl
 - Added framer motion, because why not?
 - Figured out logic behind forgot password function.
 - Found and fixed bug with mobile hamburger menu function. main section of pages were overlapping dropdown menu making it non-interactive. Removed screen height from main page sections and gave dropdown z index.
+- Added footer element and some margin fixing after moving around div elements to fix dropdown menu.
+- First feeling of accomplishment in fixing mobile hamburger menu, was able to figure out when things had went wrong and back track from there and fix the issue. Felt like a win.
+- Added UI for forgot password page with alert showing successul email sent
+- Added error handling to all auth pages

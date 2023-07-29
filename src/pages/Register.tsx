@@ -3,10 +3,13 @@ import { signInWithPopup, createUserWithEmailAndPassword } from "firebase/auth";
 import { useNavigate, Link } from "react-router-dom";
 import { useLottie } from "lottie-react";
 import signup from "../assets/signup.json";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 
 export const Register = () => {
+  const [isError, setIsError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+
   const navigate = useNavigate();
   //
   // Animation settings
@@ -48,9 +51,11 @@ export const Register = () => {
         );
         console.log(signInResult);
         navigate("/latest");
-      } catch (error) {
-        console.log(error);
-        alert("Please enter a valid email and password");
+      } catch (error: unknown) {
+        const errorObj = error as { message: string };
+        setIsError(true);
+        setErrorMessage(errorObj.message);
+        console.log(errorMessage);
       }
     }
   };
@@ -96,7 +101,7 @@ export const Register = () => {
               scale: [0, 1.1, 1],
             }}
             transition={{ delay: 0 }}
-            className="card flex-shrink-0 w-full max-w-sm shadow-md shadow-stone-800 bg-base-100"
+            className="card flex-shrink-0 w-full max-w-sm shadow-md shadow-stone-800 bg-base"
           >
             <div className="card-body">
               <div className="form-control">
@@ -140,6 +145,29 @@ export const Register = () => {
                       />
                     </svg>
                   </Link>
+                </label>
+              </div>
+
+              <div className={`alert bg-error ${isError ? "" : "hidden"}`}>
+                <span className="flex-col justify-start">
+                  {errorMessage}
+                  <br />
+                </span>
+                <label onClick={() => setIsError(false)}>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="currentColor"
+                    className="flex-col w-8 h-8 justify-self-end hover:text-black cursor-pointer"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
                 </label>
               </div>
               <div className="form-control mt-6">

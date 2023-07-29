@@ -37,3 +37,7 @@ main {
 .hero {
   margin-top: 200px;
 }
+
+[data-theme="corporate"] {
+  background-color: rgb(233, 233, 233);
+}

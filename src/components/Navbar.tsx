@@ -40,7 +40,7 @@ export const Navbar = () => {
         <div className="flex-1 ml-5">
           {/* Logo image and text */}
           <Link to="/">
-            <img src="src/assets/logo.png" alt="logo" />
+            <img src="/assets/logo.png" alt="logo" />
           </Link>
           <Link to="/">
             <span className="logo rounded-lg normal-case text-xl ml-2 h-5 pl-2 items-center hover:text-accent">
@@ -262,7 +262,7 @@ export const Navbar = () => {
               <div className="w-10 rounded-full">
                 <img
                   className="avatar"
-                  src={user?.photoURL || "src/assets/user.png"}
+                  src={user?.photoURL || "/assets/user.png"}
                   width="70"
                   height="70"
                   alt="Avatar"
