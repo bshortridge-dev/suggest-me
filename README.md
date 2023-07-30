@@ -48,3 +48,8 @@ Possibly adding a feature to see where given suggestions are currently streamabl
 - Added UI for forgot password page with alert showing successul email sent
 - Added error handling to all auth pages
 - Planned out AI suggestion function, researched using ChatGPT API
+
+## 7-29-2023
+
+- Added the beginning logic and layout of the Ask AI functionality.
+- Still a little buggy with recieving prompts, sometimes returns a movie when asking for TV Show etc.
