@@ -9,7 +9,7 @@ import { Register } from "./pages/Register";
 import { Forgot } from "./pages/Forgot";
 import Latest from "./pages/Latest";
 import { AskAI } from "./pages/AskAI";
-import Ask from "./pages/Ask";
+import { Ask } from "./pages/ask/Ask";
 
 function App() {
   return (
@@ -20,7 +20,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/Dashboard" element={<Dashboard />} />
           <Route path="/Latest" element={<Latest />} />
-          <Route path="/Ask" element={<Ask />} />
+          <Route path="/Ask/Ask" element={<Ask />} />
           <Route path="/AskAI" element={<AskAI />} />
           <Route path="/Login" element={<LoginPage />} />
           <Route path="/Register" element={<Register />} />
