@@ -53,3 +53,4 @@ Possibly adding a feature to see where given suggestions are currently streamabl
 
 - Added the beginning logic and layout of the Ask AI functionality.
 - Still a little buggy with recieving prompts, sometimes returns a movie when asking for TV Show etc.
+- Added basic posting function to add posts into the database, set firestore rules to only allow logged in users make posts.
