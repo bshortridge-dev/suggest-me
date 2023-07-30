@@ -24,11 +24,12 @@ const lottieOptions = {
 
 export const Forgot = () => {
   const emailRef = useRef<HTMLInputElement>(null);
-  const [isError, setIsError] = useState(false);
   const [isEmailSent, setIsEmailSent] = useState(false);
+  const [isError, setIsError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
   const { View } = useLottie(lottieOptions);
+
   const handleSendPassword = async () => {
     const email = emailRef.current?.value;
     if (email) {

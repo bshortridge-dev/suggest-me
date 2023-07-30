@@ -47,3 +47,4 @@ Possibly adding a feature to see where given suggestions are currently streamabl
 - First feeling of accomplishment in fixing mobile hamburger menu, was able to figure out when things had went wrong and back track from there and fix the issue. Felt like a win.
 - Added UI for forgot password page with alert showing successul email sent
 - Added error handling to all auth pages
+- Planned out AI suggestion function, researched using ChatGPT API

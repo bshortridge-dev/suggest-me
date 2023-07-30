@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 const lottieOptions = {
   animationData: movies,
-  loop: true,
+  loop: false,
   speed: 0.2,
   autoplay: true,
   style: {

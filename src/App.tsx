@@ -8,7 +8,7 @@ import { Dashboard } from "./pages/Dashboard";
 import { Register } from "./pages/Register";
 import { Forgot } from "./pages/Forgot";
 import Latest from "./pages/Latest";
-import AskAI from "./pages/AskAI";
+import { AskAI } from "./pages/AskAI";
 import Ask from "./pages/Ask";
 
 function App() {

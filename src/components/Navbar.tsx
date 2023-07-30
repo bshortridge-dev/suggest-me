@@ -40,7 +40,7 @@ export const Navbar = () => {
         <div className="flex-1 ml-5">
           {/* Logo image and text */}
           <Link to="/">
-            <img src="/assets/logo.png" alt="logo" />
+            <img src="../public/logo.png" alt="logo" />
           </Link>
           <Link to="/">
             <span className="logo rounded-lg normal-case text-xl ml-2 h-5 pl-2 items-center hover:text-accent">
@@ -262,7 +262,7 @@ export const Navbar = () => {
               <div className="w-10 rounded-full">
                 <img
                   className="avatar"
-                  src={user?.photoURL || "/assets/user.png"}
+                  src={user?.photoURL || "../public/user.png"}
                   width="70"
                   height="70"
                   alt="Avatar"
@@ -274,39 +274,38 @@ export const Navbar = () => {
               tabIndex={0}
               className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
             >
-              <li>
-                {user ? (
-                  <>
-                    <li>
-                      <Link to="/dashboard">
-                        <span className="hover:underline hover:text-accent">
-                          Dashboard
-                        </span>
-                      </Link>
-                    </li>
+              {user ? (
+                <>
+                  <li>
+                    <Link to="/dashboard">
+                      <span className="hover:underline hover:text-accent">
+                        Dashboard
+                      </span>
+                    </Link>
+
                     <button onClick={() => auth.signOut()}>
                       <span className="hover:underline hover:text-accent">
                         Sign Out
                       </span>
                     </button>
-                  </>
-                ) : (
-                  <>
-                    <li>
-                      <Link to="/register">
-                        <span className="hover:underline hover:text-accent">
-                          Register
-                        </span>
-                      </Link>
-                    </li>
-                    <Link to="/login">
+                  </li>
+                </>
+              ) : (
+                <>
+                  <li>
+                    <Link to="/register">
                       <span className="hover:underline hover:text-accent">
-                        Login
+                        Register
                       </span>
                     </Link>
-                  </>
-                )}
-              </li>
+                  </li>
+                  <Link to="/login">
+                    <span className="hover:underline hover:text-accent">
+                      Login
+                    </span>
+                  </Link>
+                </>
+              )}
             </ul>
           </div>
         </div>
